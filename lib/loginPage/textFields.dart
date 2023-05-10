@@ -11,7 +11,7 @@ Widget textFieldEmail() {
         builder: (context, providerValue, child) {
           return TextFormField(
               keyboardType: TextInputType.emailAddress,
-              decoration: inputTextDecoration("Email"),
+              decoration: inputTextDecoration("Email",iconvalue:null),
               onChanged: (value) {
                 providerValue.emailNotifier(value);
               },
@@ -21,16 +21,17 @@ Widget textFieldEmail() {
 }
 
 // Text Field for password.....................................
-Widget textFieldPassword() {
+Widget textFieldPassword(bool pass) {
   return Padding(
     padding: const EdgeInsets.all(18.0),
     child: Consumer<LoginPageProvider>(
       builder: (context, providerValue, child) {
         return TextFormField(
           keyboardType: TextInputType.visiblePassword,
-          obscureText: true,
+
+          obscureText: pass,
           style: textStyleLabel(),
-          decoration: inputTextDecoration("Password"),
+          decoration: inputTextDecoration("Password",iconvalue: Icons.visibility),
           onChanged: (value) {
             providerValue.passwordNotifier(value);
           },
@@ -41,7 +42,8 @@ Widget textFieldPassword() {
 }
 
 // Input Decoration for above TextFormFields.....................
-InputDecoration inputTextDecoration(String value) {
+InputDecoration inputTextDecoration(String value,{required iconvalue}) {
+ 
   return InputDecoration(
     contentPadding: const EdgeInsets.all(20),
     labelText: value,
@@ -49,6 +51,10 @@ InputDecoration inputTextDecoration(String value) {
     focusColor: Colors.white,
     focusedBorder: textFieldBorder(),
     enabledBorder: textFieldBorder(),
+    suffixIcon: GestureDetector(
+
+        child: Icon(iconvalue,color: Colors.grey,)),
+    
   );
 }
 

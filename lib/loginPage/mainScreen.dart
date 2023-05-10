@@ -8,13 +8,16 @@ import 'submitButton.dart';
 import 'textFields.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+
+   const LoginPage({Key? key,}) : super(key: key);
 
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
+  bool securetext =true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,7 +47,10 @@ class _LoginPageState extends State<LoginPage> {
           logoApp(),
           loginText(context), // See below.........
           textFieldEmail(), // See textFields.dart..................
-          textFieldPassword(), // See textFields.dart..................
+          textFieldPassword(
+            securetext,
+
+          ), // See textFields.dart..................
           submitButton(), // See submitButton.dart..................
           notUserSignup(context), //See notUserSignup.dart..............
         ],

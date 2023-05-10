@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 import '../../aboutPage/mainPage.dart';
@@ -48,7 +49,7 @@ Widget listTileCreate(context) {
           if (providerValue.experience == "" ||
               providerValue.qualification == "" ||
               providerValue.about == "") {
-            showDialog(
+               showDialog(
               context: context,
               builder: (context) {
                 return AlertDialog(
@@ -187,7 +188,9 @@ ListTile listTileShare(context) {
       style: TextStyle(
           fontSize: setSize(context, 18), fontWeight: FontWeight.w400),
     ),
-    onTap: () {},
+    onTap: () {
+      Share.share('com.example.flutter_project');
+    },
   );
 }
 

@@ -9,7 +9,7 @@ Widget alreadyUserLogin(context) {
     child: TextButton(
       onPressed: () {
         Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) => const LoginPage()));
+            MaterialPageRoute(builder: (context) =>const LoginPage()));
       },
       child: Text("Already a User? Click here Login.",
           style: TextStyle(

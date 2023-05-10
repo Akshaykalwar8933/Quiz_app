@@ -12,7 +12,7 @@ Widget textFieldName() {
           style: const TextStyle(color: Colors.white),
           keyboardType: TextInputType.name,
           textCapitalization: TextCapitalization.words,
-          decoration: textFieldDecoration("Name"),
+          decoration: textFieldDecoration("Name",iconvalue1: null),
           onChanged: (value) {
             providerValue.nameController(value);
           },
@@ -30,7 +30,7 @@ Widget textFieldEmail() {
         child: TextFormField(
           style: const TextStyle(color: Colors.white),
           keyboardType: TextInputType.emailAddress,
-          decoration: textFieldDecoration("Email"),
+          decoration: textFieldDecoration("Email",iconvalue1: null),
           onChanged: (value) {
             providerValue.emailController(value);
           },
@@ -49,7 +49,10 @@ Widget textFieldPassword() {
           obscureText: true,
           style: const TextStyle(color: Colors.white),
           keyboardType: TextInputType.visiblePassword,
-          decoration: textFieldDecoration("Password"),
+          decoration: textFieldDecoration(
+            "Password",
+              iconvalue1: Icons.visibility,
+          ),
           onChanged: (value) {
             providerValue.passwordController(value);
           },
@@ -59,9 +62,10 @@ Widget textFieldPassword() {
   );
 }
 
-InputDecoration textFieldDecoration(String label) {
+InputDecoration textFieldDecoration(String label,{required iconvalue1}) {
   return InputDecoration(
       labelText: label,
+      suffix: Icon(iconvalue1,color: Colors.black,),
       labelStyle: const TextStyle(color: Colors.white),
       enabledBorder: textFieldBorder(),
       focusedBorder: textFieldBorder());
